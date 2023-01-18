@@ -21,6 +21,7 @@ public class Game extends ApplicationAdapter {
 	private FreeTypeFontGenerator.FreeTypeFontParameter fontParameter;
 	private BitmapFont font;
 	Card testACECLUB; //fixme [testing] delete later
+	Deck testDeck;
 
 
 	@Override
@@ -37,7 +38,8 @@ public class Game extends ApplicationAdapter {
 		font = fontGenerator.generateFont(fontParameter);
 
 		testACECLUB = new Card(new Face("ACE"), new Suit("CLUB")); //fixme [testing] delete later
-
+		testDeck = new Deck();
+		testDeck.printDeck();
 	}
 
 	@Override
