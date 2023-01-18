@@ -1,2 +1,2 @@
 ## blackjack
-### made by brendan waldrop
+### executable coming soon
