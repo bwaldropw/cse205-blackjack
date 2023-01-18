@@ -20,6 +20,8 @@ public class Game extends ApplicationAdapter {
 	private FreeTypeFontGenerator fontGenerator;
 	private FreeTypeFontGenerator.FreeTypeFontParameter fontParameter;
 	private BitmapFont font;
+	Card testACECLUB; //fixme [testing] delete later
+
 
 	@Override
 	public void create () {
@@ -34,6 +36,8 @@ public class Game extends ApplicationAdapter {
 		fontParameter.color = Color.WHITE;
 		font = fontGenerator.generateFont(fontParameter);
 
+		testACECLUB = new Card(new Face("ACE"), new Suit("CLUB")); //fixme [testing] delete later
+
 	}
 
 	@Override
@@ -41,8 +45,9 @@ public class Game extends ApplicationAdapter {
 		ScreenUtils.clear(255, 255, 255, 1);
 
 		batch.begin();
-		batch.draw(background, 0, 0);
+		batch.draw(background, 0, 0); //fixme [testing] delete later
 		font.draw(batch, "Joe Mama", 100, 400);
+		batch.draw(testACECLUB.getTexture(), 100, 100, 125, 175);
 		batch.end();
 	}
 	

@@ -6,11 +6,11 @@ public class Face {
 
     public Face(String name) {
         this.name = name;
-        setValue(name);
+        setValue();
     }
 
-    private void setValue(String name) {
-        switch (name) {
+    private void setValue() {
+        switch (this.name) {
             case "ACE":
                 value = 1;
                 break;
@@ -46,6 +46,15 @@ public class Face {
                 break;
             default:
                 System.out.println("Card name does not match value.");
+        }
+    }
+
+    public void switchAce() {
+        if (this.name.equals("ACE") && this.value == 1) {
+            this.value = 11;
+        }
+        if (this.name.equals("ACE") && this.value == 11) {
+            this.value = 1;
         }
     }
 
