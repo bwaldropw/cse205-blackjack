@@ -1,2 +1,2 @@
-## CSE 205 Honors Project: Blackjack
-# Made by Brendan Waldrop
+## blackjack
+### made by brendan waldrop
