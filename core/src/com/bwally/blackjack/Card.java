@@ -7,12 +7,15 @@ import com.badlogic.gdx.math.Interpolation;
 public class Card {
     private Face face;
     private Suit suit;
-    private Texture texture = new Texture("CARD.png"); //fixme remove
+    private Texture texture;
+
+    public final int width = 125;
+    public final int height = 175;
 
     public Card(Face face, Suit suit) {
         this.face = face;
         this.suit = suit;
-        //this.texture = createTexture(face, suit); fixme return
+        this.texture = createTexture(face, suit);
     }
 
     public Face getFace() {

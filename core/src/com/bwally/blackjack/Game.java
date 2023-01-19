@@ -2,6 +2,7 @@ package com.bwally.blackjack;
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
@@ -16,11 +17,11 @@ import java.awt.*;
 public class Game extends ApplicationAdapter {
 	SpriteBatch batch;
 	Texture background;
+	Texture arm;
 
 	private FreeTypeFontGenerator fontGenerator;
 	private FreeTypeFontGenerator.FreeTypeFontParameter fontParameter;
 	private BitmapFont font;
-	Card testACECLUB; //fixme [testing] delete later
 	Deck testDeck;
 
 
@@ -28,6 +29,7 @@ public class Game extends ApplicationAdapter {
 	public void create () {
 		batch = new SpriteBatch();
 		background = new Texture("background.jpg");
+		arm = new Texture("arm.png");
 
 		fontGenerator = new FreeTypeFontGenerator(Gdx.files.internal("Purple Smile.ttf"));
 		fontParameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
@@ -37,7 +39,6 @@ public class Game extends ApplicationAdapter {
 		fontParameter.color = Color.WHITE;
 		font = fontGenerator.generateFont(fontParameter);
 
-		testACECLUB = new Card(new Face("ACE"), new Suit("CLUB")); //fixme [testing] delete later
 		testDeck = new Deck();
 		testDeck.printDeck();
 	}
@@ -48,8 +49,10 @@ public class Game extends ApplicationAdapter {
 
 		batch.begin();
 		batch.draw(background, 0, 0); //fixme [testing] delete later
-		font.draw(batch, "Joe Mama", 100, 400);
-		batch.draw(testACECLUB.getTexture(), 100, 100, 125, 175);
+
+		if (Gdx.input.isKeyPressed(Input.Keys.SPACE)) {
+			batch.draw(arm, 300, 0);
+		}
 		batch.end();
 	}
 	
