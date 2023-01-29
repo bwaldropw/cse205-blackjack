@@ -1,5 +1,7 @@
 package com.bwally.blackjack;
 
+//fixme REMOVE PHILLIP MILLERS FACE
+
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
@@ -23,6 +25,7 @@ public class Game extends ApplicationAdapter {
 	private FreeTypeFontGenerator.FreeTypeFontParameter fontParameter;
 	private BitmapFont font;
 	Deck testDeck;
+	Hand testHand;
 
 
 	@Override
@@ -33,14 +36,18 @@ public class Game extends ApplicationAdapter {
 
 		fontGenerator = new FreeTypeFontGenerator(Gdx.files.internal("Purple Smile.ttf"));
 		fontParameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
-		fontParameter.size = 100;
-		fontParameter.borderWidth = 10;
+		fontParameter.size = 50;
+		fontParameter.borderWidth = 5;
 		fontParameter.borderColor = Color.BLACK;
 		fontParameter.color = Color.WHITE;
 		font = fontGenerator.generateFont(fontParameter);
 
-		testDeck = new Deck();
-		testDeck.printDeck();
+		testHand = new Hand();
+		testHand.addCard();
+		testHand.addCard();
+		testHand.addCard();
+		testHand.printHand();
+		System.out.println(testHand.getTotal());
 	}
 
 	@Override
@@ -48,12 +55,17 @@ public class Game extends ApplicationAdapter {
 		ScreenUtils.clear(255, 255, 255, 1);
 
 		batch.begin();
+
 		batch.draw(background, 0, 0); //fixme [testing] delete later
+		testHand.drawHand(batch);
+		font.draw(batch, "Total: " + testHand.getTotal(), 100, 100);
 
 		if (Gdx.input.isKeyPressed(Input.Keys.SPACE)) {
 			batch.draw(arm, 300, 0);
 		}
 		batch.end();
+
+
 	}
 	
 	@Override

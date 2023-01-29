@@ -11,7 +11,6 @@ public class Deck {
 
     public Deck() {
         fillDeck();
-
     }
 
     private void fillDeck() {
@@ -21,7 +20,6 @@ public class Deck {
                 deck.push(new Card(new Face(faces[i]), new Suit(suits[j])));
             }
         }
-
         shuffle();
     }
 
@@ -34,5 +32,10 @@ public class Deck {
             System.out.println(deck.get(i).getFace().getName() + " " + deck.get(i).getSuit().getName());
         }
     }
+
+    public Card drawCard() {
+        return deck.pop();
+    }
+
 
 }

@@ -12,7 +12,7 @@ public class Face {
     private void setValue() {
         switch (this.name) {
             case "ACE":
-                value = 1;
+                value = 11;
                 break;
             case "TWO":
                 value = 2;
@@ -50,9 +50,6 @@ public class Face {
     }
 
     public void switchAce() {
-        if (this.name.equals("ACE") && this.value == 1) {
-            this.value = 11;
-        }
         if (this.name.equals("ACE") && this.value == 11) {
             this.value = 1;
         }

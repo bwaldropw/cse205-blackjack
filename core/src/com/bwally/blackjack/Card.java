@@ -12,6 +12,9 @@ public class Card {
     public final int width = 125;
     public final int height = 175;
 
+    public int x = 100;
+    public int y = 100;
+
     public Card(Face face, Suit suit) {
         this.face = face;
         this.suit = suit;
@@ -34,9 +37,6 @@ public class Card {
         Texture cardBlank = new Texture("CARD.png");
         Texture cardFace = new Texture(this.face.getName() + ".png");
         Texture cardSuit = new Texture(this.suit.getName() + ".png");
-
-        System.out.println(this.face.getName() + ".png"); //Fixme [testing] delete later
-        System.out.println(this.suit.getName() + ".png");
 
         cardBlank.getTextureData().prepare();
         Pixmap cardMap = cardBlank.getTextureData().consumePixmap();
