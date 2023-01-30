@@ -23,6 +23,10 @@ public class Deck {
         shuffle();
     }
 
+    public Card getCard(int index) {
+        return deck.get(index);
+    }
+
     public void shuffle() {
         Collections.shuffle(deck);
     }
